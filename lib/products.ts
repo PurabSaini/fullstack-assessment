@@ -77,7 +77,7 @@ export class ProductService {
     }
 
     const subCategories = new Set(filtered.map((p) => p.subCategoryName));
-    return Array.from(subCategories).sort();
+    return subCategories.size < 2 ? [] : Array.from(subCategories).sort();
   }
 
   getTotalCount(filters?: Omit<ProductFilters, 'limit' | 'offset'>): number {
