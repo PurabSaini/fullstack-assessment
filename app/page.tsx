@@ -51,6 +51,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    setSearch(""); // Clear search when category changes
     if (selectedCategory) {
       fetch(`/api/subcategories?category=${selectedCategory}`)
         .then((res) => res.json())
