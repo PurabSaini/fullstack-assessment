@@ -95,7 +95,7 @@ export default function Home() {
             </div>
 
             <Select
-              value={selectedCategory}
+              value={selectedCategory || ""}
               onValueChange={(value) => setSelectedCategory(value || undefined)}
             >
               <SelectTrigger className="w-full md:w-[200px]">
