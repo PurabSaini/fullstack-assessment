@@ -1,8 +1,6 @@
 # Stackline Full Stack Assignment
 
-## Overview
-
-1. Bug: Incorrect Subcategory Filtering
+## 1. Bug: Incorrect Subcategory Filtering
 
       Description:
       When a category is selected, the website displays all subcategories instead of only those belonging to the selected category.
@@ -13,7 +11,7 @@
       Fix:
       Update the fetch request to include the selected category as a query parameter. This ensures that getSubCategories retrieves only subcategories related to the selected category instead of receiving an unfiltered or undefined response.
 
-2. Bug: Image Rendering Error
+## 2. Bug: Image Rendering Error
 
    Description: 
    When rendering images with the hostname 'images-na.ssl-images-amazon.com'
@@ -30,7 +28,7 @@
    Fix:
    Add the missing Amazon hostname to the remotePatterns array in next.config.js to allow Next.js to render these images. This ensures that images with the above hostname are recognized as valid sources and rendered correctly. 
 
-3. Bug: Clear Filters Not Updating Dropdown Display for Categories
+## 3. Bug: Clear Filters Not Updating Dropdown Display for Categories
    
    Description: 
    When selecting a category and then clicking “Clear Filters”, the selected category resets internally but the dropdown still displays the previously selected category instead of reverting to the placeholder “All Categories.”
@@ -42,7 +40,7 @@
    Fix:
    By setting value to an empty string ("") when no category is selected, the Select component correctly interprets this as the absence of a selection and reverts to displaying the placeholder “All Categories.” This ensures the dropdown visually resets when the page re-renders after the user clicks “Clear Filters.”
 
-4. Enhancement: Redundant Subcategory Selection
+## 4. Enhancement: Redundant Subcategory Selection
 
    Description:
    When certain categories have only one subcategory, users can still open the subcategory dropdown and manually select it — even though it’s the only option available. This creates unnecessary steps for the user since the products displayed would not change at all.
@@ -55,7 +53,7 @@
    Add a condition to render the subcategory dropdown if the selected category contains more than one subcategory. As a result, users are not given redundant options
    when only one subcategory exists.
 
-5. Bug: Search Bar Not Resetting When Category Changes
+## 5. Bug: Search Bar Not Resetting When Category Changes
 
    Description:
    When a user searches for items within one category and then switches to another, the previous search term remains in the search bar.
@@ -68,7 +66,7 @@
    Fix:
    Set the search input state to an empty string ("") when the category is updated. This ensures consistent and predictable filtering behavior, as the previous search query is cleared when a new category is selected.
 
-6. Bug: Singular vs. Plural Product Label
+## 6. Bug: Singular vs. Plural Product Label
 
    Description:
    When only one product is displayed, the website incorrectly displayed 
