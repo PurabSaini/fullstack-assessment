@@ -2,14 +2,14 @@
 
 ## 1. Bug: Incorrect Subcategory Filtering
 
-      Description:
-      When a category is selected, the website displays all subcategories instead of only those belonging to the selected category.
+   Description:
+   When a category is selected, the website displays all subcategories instead of only those belonging to the selected category.
 
-      Cause:
-      The fetch request for subcategories does not include a category parameter specifying the selected category, resulting in an unfiltered response.
+   Cause:
+   The fetch request for subcategories does not include a category parameter specifying the selected category, resulting in an unfiltered response.
 
-      Fix:
-      Update the fetch request to include the selected category as a query parameter. This ensures that getSubCategories retrieves only subcategories related to the selected category instead of receiving an unfiltered or undefined response.
+   Fix:
+   Update the fetch request to include the selected category as a query parameter. This ensures that getSubCategories retrieves only subcategories related to the selected category instead of receiving an unfiltered or undefined response.
 
 ## 2. Bug: Image Rendering Error
 
