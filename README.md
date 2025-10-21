@@ -11,8 +11,7 @@
       The fetch request for subcategories does not include a category parameter specifying the selected category, resulting in an unfiltered response.
 
       Fix:
-      Update the fetch request to include the selected category as a query parameter to ensure only relevant subcategories are retrieved.
-      This will allow the getSubCategories method to filter products by the selected category instead of always receiving an undefined value.
+      Update the fetch request to include the selected category as a query parameter. This ensures that getSubCategories retrieves only subcategories related to the selected category instead of receiving an unfiltered or undefined response.
 
 2. Bug: Image Rendering Error
 
@@ -41,7 +40,7 @@
    In other words, undefined did not correspond to any valid option, so the dropdown remained stuck showing the previously selected label.
 
    Fix:
-   By setting value to an empty string ("") when no category is selected, the Select component correctly interprests this as the absence of a selection and reverts to displaying the placeholder “All Categories.” This ensures the dropdown visually resets when the page re-renders after the user clicks “Clear Filters.”
+   By setting value to an empty string ("") when no category is selected, the Select component correctly interprets this as the absence of a selection and reverts to displaying the placeholder “All Categories.” This ensures the dropdown visually resets when the page re-renders after the user clicks “Clear Filters.”
 
 4. Redundant Subcategory Selection
 
@@ -53,8 +52,8 @@
    This leads to redundant interaction, since selecting the single available option has no functional impact — it’s already implicitly selected.
 
    Improvement:
-   Add a condition to render the subcategory dropdown if the selected category contains more than one subcategory. As a result, the user is not given redundant information
-   if there is only one subcategory available.
+   Add a condition to render the subcategory dropdown if the selected category contains more than one subcategory. As a result, users are not given redundant options
+   when only one subcategory exists.
 
 5. Search Bar Not Resetting When Category Changes
 
@@ -67,8 +66,7 @@
    Since the query is scoped to the new category but still contains the old search term, it may return irrelevant or no results.
 
    Fix:
-   Set the search input state to an empty string ("") when the category is updated. This will provide consistent and predictable filtering behavior since the previous search
-   query will not be active at the same time as the new category filter.
+   Set the search input state to an empty string ("") when the category is updated. This ensures consistent and predictable filtering behavior, as the previous search query is cleared when a new category is selected.
 
 6. Singular vs. Plural Product Label
 
@@ -84,7 +82,6 @@
 
    “product” when products.length = 1
 
-   “products” when product.lengths ≠ 1
+   “products” when product.lengths != 1
 
-   This way there will be proper grammar used depending on the number of products being displayed.
-
+   This ensures proper grammar depending on the number of products displayed.
