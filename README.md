@@ -19,8 +19,7 @@
 
    Error: Invalid src prop (https://images-na.ssl-images-amazon.com/images/I/81ZSuzkKKHL._AC_SL1500_.jpg) on `next/image`, hostname "images-na.ssl-images-amazon.com" is not configured under images in your `next.config.js`.
 
-   This error prevents product images with the above hostname from being displayed 
-   on the website.
+   This error prevents product images with the above hostname from being displayed on the website.
 
    Cause:
    Next.js restricts external images to only those from hostnames explicitly allowed in the next.config.js file. The reason for this is so that only images from specific, trusted domains are loaded. The hostname images-na.ssl-images-amazon.com was not included in the images.remotePatterns configuration, causing the next/image component to reject those image sources as invalid/untrustworthy.
@@ -38,7 +37,7 @@
    In other words, undefined did not correspond to any valid option, so the dropdown remained stuck showing the previously selected label.
 
    Fix:
-   By setting value of the Select component for the dropdown to an empty string ("") when no category is selected, the Select component correctly interprets this as the absence of a selection and reverts to displaying the placeholder “All Categories.” This ensures the dropdown visually resets when the page re-renders after the user clicks “Clear Filters.”
+   By setting the value of the Select component for the dropdown to an empty string ("") when no category is selected, the Select component correctly interprets this as the absence of a selection and reverts to displaying the placeholder “All Categories.” This ensures the dropdown visually resets when the page re-renders after the user clicks “Clear Filters.”
 
 ## 4. Enhancement: Redundant Subcategory Selection
 
