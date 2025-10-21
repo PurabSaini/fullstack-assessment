@@ -9,7 +9,7 @@
    The fetch request for subcategories does not include a category parameter specifying the selected category, resulting in an unfiltered response.
 
    Fix:
-   Update the fetch request to include the selected category as a query parameter. This ensures that getSubCategories retrieves only subcategories related to the selected category instead of receiving an unfiltered or undefined response.
+   Updated the fetch request to include the selected category as a query parameter. This ensures that getSubCategories retrieves only subcategories related to the selected category instead of receiving an unfiltered or undefined response.
 
 ## 2. Bug: Image Rendering Error
 
@@ -26,7 +26,7 @@
    Next.js restricts external images to only those from hostnames explicitly allowed in the next.config.js file. The reason for this is so that only images from specific, trusted domains are loaded. The hostname images-na.ssl-images-amazon.com was not included in the images.remotePatterns configuration, causing the next/image component to reject those image sources as invalid/untrustworthy.
 
    Fix:
-   Add the missing Amazon hostname to the remotePatterns array in next.config.js to allow Next.js to render these images. This ensures that images with the above hostname are recognized as valid sources and rendered correctly. 
+   Added the missing Amazon hostname to the remotePatterns array in next.config.js to allow Next.js to render these images. This ensures that images with the above hostname are recognized as valid sources and rendered correctly. 
 
 ## 3. Bug: Clear Filters Not Updating Dropdown Display for Categories
    
@@ -38,7 +38,7 @@
    In other words, undefined did not correspond to any valid option, so the dropdown remained stuck showing the previously selected label.
 
    Fix:
-   By setting value to an empty string ("") when no category is selected, the Select component correctly interprets this as the absence of a selection and reverts to displaying the placeholder “All Categories.” This ensures the dropdown visually resets when the page re-renders after the user clicks “Clear Filters.”
+   By setting value of the Select component for the dropdown to an empty string ("") when no category is selected, the Select component correctly interprets this as the absence of a selection and reverts to displaying the placeholder “All Categories.” This ensures the dropdown visually resets when the page re-renders after the user clicks “Clear Filters.”
 
 ## 4. Enhancement: Redundant Subcategory Selection
 
@@ -50,7 +50,7 @@
    This leads to redundant interaction, since selecting the single available option has no functional impact — it’s already implicitly selected.
 
    Improvement:
-   Add a condition to render the subcategory dropdown if the selected category contains more than one subcategory. As a result, users are not given redundant options
+   Added a condition to render the subcategory dropdown if the selected category contains more than one subcategory. As a result, users are not given redundant options
    when only one subcategory exists.
 
 ## 5. Bug: Search Bar Not Resetting When Category Changes
