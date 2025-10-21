@@ -111,7 +111,7 @@ export default function Home() {
               </SelectContent>
             </Select>
 
-            {selectedCategory && subCategories.length > 0 && (
+            {selectedCategory && subCategories.length > 1 && (
               <Select
                 value={selectedSubCategory}
                 onValueChange={(value) =>
